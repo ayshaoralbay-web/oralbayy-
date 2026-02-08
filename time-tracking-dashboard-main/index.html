@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Tracking Dashboard</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #1b2040 0%, #0f1224 60%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+
+      .container {
+        width: 1100px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 20px;
+      }
+
+      .profile {
+        background: #5a4bff;
+        border-radius: 20px;
+        color: white;
+        overflow: hidden;
+      }
+
+      .profile-top {
+        padding: 30px;
+      }
+
+      .profile img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid white;
+        margin-bottom: 20px;
+      }
+
+      .profile p {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+
+      .profile h2 {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      .menu {
+        background: #1c1f4a;
+        padding: 25px 30px;
+      }
+
+      .menu button {
+        display: block;
+        background: none;
+        border: none;
+        color: #8b8fc9;
+        font-size: 16px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .menu button.active {
+        color: white;
+      }
+
+ 
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card-wrap {
+        border-radius: 20px;
+        padding-top: 45px;
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card {
+        background: #1c1f4a;
+        border-radius: 18px;
+        padding: 25px;
+        color: white;
+        height: 100%;
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        background: #2a2f7a;
+      }
+
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        opacity: 0.8;
+      }
+
+      .card h1 {
+        font-size: 44px;
+        margin: 10px 0;
+      }
+
+      .card small {
+        opacity: 0.6;
+      }
+
+      .work {
+        background-color: #ff8c66;
+        background-image: url("images/icon-work.svg");
+      }
+
+      .play {
+        background-color: #56c2e6;
+        background-image: url("images/icon-play.svg");
+      }
+
+      .study {
+        background-color: #ff5c7c;
+        background-image: url("images/icon-study.svg");
+      }
+
+      .exercise {
+        background-color: #4acf81;
+        background-image: url("images/icon-exercise.svg");
+      }
+
+      .social {
+        background-color: #7536d3;
+        background-image: url("images/icon-social.svg");
+      }
+
+      .selfcare {
+        background-color: #f1c75b;
+        background-image: url("images/icon-self-care.svg");
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <div class="profile-top">
+          <img src="images/image-jeremy.png" alt="avatar" />
+          <p>Report for</p>
+          <h2>Jeremy<br />Robson</h2>
+        </div>
+
+        <div class="menu">
+          <button class="daily">Daily</button>
+          <button class="weekly">Weekly</button>
+          <button class="monthly">Monthly</button>
+        </div>
+      </div>
+
+      <div class="cards">
+        <div class="card-wrap work">
+          <div class="card">
+            <div class="card-top">
+              <span>Work</span>
+              <span>•••</span>
+            </div>
+            <h1>32hrs</h1>
+            <small>Last Week - 36hrs</small>
+          </div>
+        </div>
+
+        <div class="card-wrap play">
+          <div class="card">
+            <div class="card-top">
+              <span>Play</span>
+              <span>•••</span>
+            </div>
+            <h1>10hrs</h1>
+            <small>Last Week - 8hrs</small>
+          </div>
+        </div>
+
+        <div class="card-wrap study">
+          <div class="card">
+            <div class="card-top">
+              <span>Study</span>
+              <span>•••</span>
+            </div>
+            <h1>4hrs</h1>
+            <small>Last Week - 7hrs</small>
+          </div>
+        </div>
+
+        <div class="card-wrap exercise">
+          <div class="card">
+            <div class="card-top">
+              <span>Exercise</span>
+              <span>•••</span>
+            </div>
+            <h1>4hrs</h1>
+            <small>Last Week - 5hrs</small>
+          </div>
+        </div>
+
+        <div class="card-wrap social">
+          <div class="card">
+            <div class="card-top">
+              <span>Social</span>
+              <span>•••</span>
+            </div>
+            <h1>5hrs</h1>
+            <small>Last Week - 10hrs</small>
+          </div>
+        </div>
+
+        <div class="card-wrap selfcare">
+          <div class="card">
+            <div class="card-top">
+              <span>Self Care</span>
+              <span>•••</span>
+            </div>
+            <h1>2hrs</h1>
+            <small>Last Week - 2hrs</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const btnday = document.querySelector(".daily");
+    const btnweek = document.querySelector(".weekly");
+    const btnMonthly = document.querySelector(".monthly");
+    let URL = "./data.json";
+    async function AddNewDog() {
+      const promise = await fetch(URL);
+      const data = await promise.json();
+      let cards = document.querySelectorAll(".card-wrap");
+      for (let i = 0; i < data.length; i++) {
+        let card = cards[i].querySelector(".card");
+        card.innerHTML = `
+          <div class="card-top">
+            <span>${data[i].title}</span>
+            <span>•••</span>
+          </div>
+          <h1>${data[i].timeframes.daily.current}hrs</h1>
+          <small>Yesterday - ${data[i].timeframes.daily.previous}hrs</small>
+      `;
+      }
+    }
+
+    btnday.addEventListener("click", AddNewDog);
+
+    async function AddNewDog2() {
+      const promise = await fetch(URL);
+      const data = await promise.json();
+      let cards = document.querySelectorAll(".card-wrap");
+      for (let i = 0; i < data.length; i++) {
+        let card = cards[i].querySelector(".card");
+        card.innerHTML = `
+          <div class="card-top">
+            <span>${data[i].title}</span>
+            <span>•••</span>
+          </div>
+          <h1>${data[i].timeframes.weekly.current}hrs</h1>
+          <small>Yesterday - ${data[i].timeframes.weekly.previous}hrs</small>
+      `;
+      }
+    }
+
+    btnweek.addEventListener("click", AddNewDog2);
+
+    async function AddNewDog3() {
+      const promise = await fetch(URL);
+      const data = await promise.json();
+      let cards = document.querySelectorAll(".card-wrap");
+      for (let i = 0; i < data.length; i++) {
+        let card = cards[i].querySelector(".card");
+        card.innerHTML = `
+          <div class="card-top">
+            <span>${data[i].title}</span>
+            <span>•••</span>
+          </div>
+          <h1>${data[i].timeframes.monthly.current}hrs</h1>
+          <small>Yesterday - ${data[i].timeframes.monthly.previous}hrs</small>
+      `;
+      }
+    }
+
+    btnMonthly.addEventListener("click", AddNewDog3);
+  </script>
+</html>
